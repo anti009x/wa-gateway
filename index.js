@@ -26,12 +26,12 @@ app.use(MainRouter);
 
 app.use(errorHandlerMiddleware);
 
-const PORT = process.env.PORT || "5000";
+const PORT = process.env.PORT || "3000";
 app.set("port", PORT);
 var server = http.createServer(app);
 server.on("listening", () => console.log("APP IS RUNNING ON PORT " + PORT));
 
-server.listen(PORT);
+server.listen(PORT, "0.0.0.0");
 
 whatsapp.onConnected((session) => {
   console.log("connected => ", session);
